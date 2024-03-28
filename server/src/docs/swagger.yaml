@@ -1,0 +1,29 @@
+components:
+  schemas:
+    CreateUserRequest:
+      type: object
+      required:
+        - userName
+        - email
+        - password
+      properties:
+        userName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+        userName:
+          type: string
+        email:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
