@@ -2,7 +2,7 @@ import * as bcrypt from 'bcrypt'
 import { v4 as UUID } from 'uuid'
 import { User } from '../../entities'
 
-import { IUserRepository } from '../../repositories'
+import { IUserRepository } from '../../repositories/interfaces'
 
 export class CreateUser {
 	private userRepository: IUserRepository

@@ -1,4 +1,4 @@
-import { IUserRepository } from '../../repositories'
+import { IUserRepository } from '../../repositories/interfaces'
 
 export class AddRole {
 	constructor(private userRepository: IUserRepository) {}

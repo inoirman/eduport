@@ -1,5 +1,7 @@
 import { Router } from 'express'
 import { UserController } from '../controllers/UserController'
+import { authenticate } from '../middlewares/authenticate'
+import { authorize } from '../middlewares/authorize'
 import { UserRepository } from '../repositories/implementation/UserRepository'
 import { AddRole, CreateUser, RemoveRole } from '../useCases/user'
 
@@ -97,11 +99,14 @@ const userController = new UserController(
  */
 
 userRouter.post('/', (req, res, next) => userController.create(req, res, next))
-userRouter.post('/role', (req, res, next) =>
+userRouter.post('/role', authenticate, authorize(['ADMIN']), (req, res, next) =>
 	userController.addRole(req, res, next)
 )
-userRouter.delete('/role', (req, res, next) =>
-	userController.removeRole(req, res, next)
+userRouter.delete(
+	'/role',
+	authenticate,
+	authorize(['ADMIN']),
+	(req, res, next) => userController.removeRole(req, res, next)
 )
 
 export default userRouter
