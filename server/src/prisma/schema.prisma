@@ -40,3 +40,18 @@ model UserRole {
 
   @@id([userId, roleId])
 }
+
+enum CourseCategory {
+  FRONTEND
+  BACKEND
+  FULLSTACK
+  DEVOPS
+  TESTING
+}
+
+model Course {
+  courseId    String         @id @default(cuid())
+  courseName  String
+  description String
+  category    CourseCategory
+}
