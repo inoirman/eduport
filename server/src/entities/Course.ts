@@ -1,14 +1,16 @@
-class Course {
+import { CourseCategory } from '@prisma/client'
+
+export class Course {
 	courseId: string
 	courseName: string
 	description?: string
-	category: string
+	category: CourseCategory
 
 	constructor(
 		courseId: string,
 		courseName: string,
 		description: string,
-		category: string
+		category: CourseCategory
 	) {
 		this.courseId = courseId
 		this.courseName = courseName
@@ -16,5 +18,3 @@ class Course {
 		this.category = category
 	}
 }
-
-export default Course

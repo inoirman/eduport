@@ -22,6 +22,8 @@ model User {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   roles     UserRole[]
+  stidents  Students[]
+  techers   Teachers[]
 }
 
 model Role {
@@ -50,8 +52,52 @@ enum CourseCategory {
 }
 
 model Course {
-  courseId    String         @id @default(cuid())
-  courseName  String
-  description String
-  category    CourseCategory
+  courseId          String             @id @default(cuid())
+  courseName        String
+  description       String
+  category          CourseCategory
+  courseAssignments CourseAssignment[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @default(now())
+}
+
+model Group {
+  groupId          String             @id @default(cuid())
+  groupName        String
+  students         Students[]
+  CourseAssignment CourseAssignment[]
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+}
+
+model Teachers {
+  teacherId                    String           @id @default(cuid())
+  user                         User             @relation(fields: [userId], references: [userId])
+  userId                       String
+  courseAssignments            CourseAssignment @relation(fields: [courseAssignmentAssignmentId], references: [assignmentId])
+  courseAssignmentAssignmentId String
+}
+
+model Students {
+  studentId String @id @default(cuid())
+  user      User   @relation(fields: [userId], references: [userId])
+  userId    String
+  groupId   String
+  group     Group  @relation(fields: [groupId], references: [groupId])
+
+  @@unique([userId, groupId])
+}
+
+model CourseAssignment {
+  assignmentId String     @id @default(cuid())
+  courseId     String
+  course       Course     @relation(fields: [courseId], references: [courseId])
+  groupId      String
+  group        Group      @relation(fields: [groupId], references: [groupId])
+  startDate    DateTime
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  Teachers     Teachers[]
+
+  @@unique([courseId, groupId])
 }

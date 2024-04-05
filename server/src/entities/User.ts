@@ -1,27 +1,37 @@
-import Role from './Role'
+// src/entities/User.ts
 
-class User {
+import { Role } from './Role'
+import { Students } from './Students'
+import { Teachers } from './Teachers'
+
+export class User {
 	userId: string
-	userName: string
 	email: string
+	userName: string
 	password: string
 	isActive: boolean
 	roles: Role[]
+	students: Students[]
+	teachers: Teachers[]
 
 	constructor(
 		userId: string,
-		userName: string,
 		email: string,
+		userName: string,
 		password: string,
+		isActive: boolean = true,
 		roles: Role[] = [],
-		isActive: boolean = true
+		students: Students[] = [],
+		teachers: Teachers[] = []
 	) {
 		this.userId = userId
-		this.userName = userName
 		this.email = email
+		this.userName = userName
 		this.password = password
 		this.isActive = isActive
 		this.roles = roles
+		this.students = students
+		this.teachers = teachers
 	}
 
 	addRole(role: Role) {
@@ -36,5 +46,3 @@ class User {
 		this.isActive = false
 	}
 }
-
-export default User

@@ -1,11 +1,22 @@
-class Role {
-  roleId: string
-  roleName: string
+// src/entities/Role.ts
 
-  constructor(roleId: string, roleName: string) {
-    this.roleId = roleId
-    this.roleName = roleName
-  }
+import { User } from '.'
+
+export class Role {
+	roleId: string
+	roleName: string
+
+	users: User[] // Это массив объектов User, которые связаны с данной ролью
+
+	constructor(
+		roleId: string,
+		roleName: string,
+
+		users: User[]
+	) {
+		this.roleId = roleId
+		this.roleName = roleName
+
+		this.users = users
+	}
 }
-
-export default Role

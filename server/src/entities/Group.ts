@@ -1,26 +1,11 @@
-import User from './User'
+// src/entities/Group.ts
 
-class Group {
-  groupId: string
-  groupName: string
-  students: User[]
-  teacher: User
+export class Group {
+	groupId: string
+	groupName: string
 
-
-  constructor(groupId: string, groupName: string, students: User[], teacher: User) {
-    this.groupId = groupId
-    this.groupName = groupName
-    this.students = students
-    this.teacher = teacher
-  }
-
-  addStudent(student: User) {
-    this.students.push(student)
-  }
-
-  setTeacher(teacher: User) {
-    this.teacher = teacher
-  }
+	constructor(groupId: string, groupName: string) {
+		this.groupId = groupId
+		this.groupName = groupName
+	}
 }
-
-export default Group
