@@ -34,7 +34,9 @@ courseRouter.post(
 	'/',
 	authenticate,
 	authorize(['ADMIN', 'TEACHER']),
-	(req, res, next) => courseController.create(req, res, next)
+	(req, res, next) => {
+		return courseController.create(req, res, next)
+	}
 )
 courseRouter.put(
 	'/:courseId',

@@ -3,6 +3,7 @@ import swaggerUi from 'swagger-ui-express'
 import { zodErrorHandler } from './middlewares/zodErrorHandler'
 import { authRouter } from './routes/authRoutes'
 import { courseRouter } from './routes/courseRoutes'
+import { groupRouter } from './routes/groupRoutes'
 import userRouter from './routes/userRoutes'
 import swaggerSpec from './swagger'
 
@@ -15,6 +16,7 @@ const apiRouter = express.Router()
 apiRouter.use('/users', userRouter)
 apiRouter.use('/auth', authRouter)
 apiRouter.use('/courses', courseRouter)
+apiRouter.use('/groups', groupRouter)
 
 app.use('/api/v1', apiRouter)
 
