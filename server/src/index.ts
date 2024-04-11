@@ -2,6 +2,7 @@ import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 import { zodErrorHandler } from './middlewares/zodErrorHandler'
 import { authRouter } from './routes/authRoutes'
+import { courseAssignmentRouter } from './routes/courseAssignmentRoutes'
 import { courseRouter } from './routes/courseRoutes'
 import { groupRouter } from './routes/groupRoutes'
 import userRouter from './routes/userRoutes'
@@ -17,6 +18,7 @@ apiRouter.use('/users', userRouter)
 apiRouter.use('/auth', authRouter)
 apiRouter.use('/courses', courseRouter)
 apiRouter.use('/groups', groupRouter)
+apiRouter.use('/course-assignments', courseAssignmentRouter)
 
 app.use('/api/v1', apiRouter)
 

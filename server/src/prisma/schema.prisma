@@ -97,7 +97,7 @@ model CourseAssignment {
   startDate    DateTime
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-  Teachers     Teachers[]
+  teachers     Teachers[]
 
   @@unique([courseId, groupId])
 }
