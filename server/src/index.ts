@@ -5,6 +5,7 @@ import { authRouter } from './routes/authRoutes'
 import { courseAssignmentRouter } from './routes/courseAssignmentRoutes'
 import { courseRouter } from './routes/courseRoutes'
 import { groupRouter } from './routes/groupRoutes'
+import { lessonRouter } from './routes/lessonRoutes'
 import userRouter from './routes/userRoutes'
 import swaggerSpec from './swagger'
 
@@ -19,6 +20,7 @@ apiRouter.use('/auth', authRouter)
 apiRouter.use('/courses', courseRouter)
 apiRouter.use('/groups', groupRouter)
 apiRouter.use('/course-assignments', courseAssignmentRouter)
+apiRouter.use('lessons', lessonRouter)
 
 app.use('/api/v1', apiRouter)
 

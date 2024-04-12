@@ -57,6 +57,7 @@ model Course {
   description       String
   category          CourseCategory
   courseAssignments CourseAssignment[]
+  lessons           Lessons[]
   createdAt         DateTime           @default(now())
   updatedAt         DateTime           @default(now())
 }
@@ -100,4 +101,12 @@ model CourseAssignment {
   teachers     Teachers[]
 
   @@unique([courseId, groupId])
+}
+
+model Lessons {
+  lessonId    String @id @default(cuid())
+  courseId    String
+  course      Course @relation(fields: [courseId], references: [courseId])
+  title       String
+  description String
 }

@@ -5,6 +5,8 @@ import { ICourseAssignmentRepository } from './ICourseAssignmentRepository'
 import { ICourseRepository } from './ICourseRepository'
 import { IGroup } from './IGroup'
 import { IGroupRepository } from './IGroupRepository'
+import { ILesson } from './ILesson'
+import { ILessonRepository } from './ILessonRepository'
 import { IUserRepository } from './IUserRepository'
 
 export {
@@ -15,5 +17,7 @@ export {
 	ICourseRepository,
 	IGroup,
 	IGroupRepository,
+	ILesson,
+	ILessonRepository,
 	IUserRepository,
 }

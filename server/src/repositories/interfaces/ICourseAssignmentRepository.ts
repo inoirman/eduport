@@ -8,5 +8,5 @@ export interface ICourseAssignmentRepository {
 
 	addTeacher(assignmentId: string, userId: string): Promise<void>
 	removeTeacher(assignmentId: string, teacherId: string): Promise<void>
-	updateStartDate(assignmentId: string, startDate: Date): Promise<void>
+	updateStartDate(assignment: ICourseAssignment): Promise<void>
 }

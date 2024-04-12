@@ -18,7 +18,7 @@ export class UpdateStartDate {
 			throw new Error('Course assignment not found')
 		}
 		courseAssignment.startDate = startDate
-		await this.courseAssignmentRepository.update(
+		await this.courseAssignmentRepository.updateStartDate(
 			courseAssignment as ICourseAssignment
 		)
 	}
